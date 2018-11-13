@@ -149,9 +149,13 @@ export class InstructionExecutor implements Observable {
   }
 }
 
+export interface IntermediateResults {
+  outbox?: cf.node.ClientActionMessage;
+}
+
 export class Context {
   public results2: OpCodeResult[] = [];
-  public intermediateResults: { [s: string]: any } = {};
+  public intermediateResults: IntermediateResults = {};
 
   // todo(ldct): the following fields are very special-purpose and only accessed
   // in one place; it would be nice to get rid of them
